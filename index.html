@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Butch Ewing</title>
+	<meta name="description" content="Butch Ewing is a Web Developer, Artist, Musician, Entrepreneur, Super Hero, Public Figure, Cancer Survivor, Small Business Owner, Christ Follower, Screen Writer, Ordained Minister, Comedian, and Dork.">
+	<meta name="author" content="Butch Ewing">
+	<style>body{background-color:black;font-family:monospace;color:#aaa;font-size:12px;line-height:14px;}</style>
+	<link href="css/jquery.terminal.css" rel="stylesheet">
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery.mousewheel-min.js"></script>
+    <script src="js/jquery.terminal-min.js"></script>
+	<script>
+	jQuery(function($, undefined) {
+		var user_ip,
+			user_city,
+			user_country,
+			user_lat,
+			user_long;
+
+		$.getJSON("http://www.telize.com/geoip?callback=?",
+				function(json) {
+		    		user_ip = json.ip;
+					user_city = json.city;
+					user_country = json.country;
+					user_lat = json.latitude;
+					user_long = json.longitude;
+				}
+			);
+			
+		function addhttp(url) {
+		   if (!/^(f|ht)tps?:\/\//i.test(url)) {
+		      url = "http://" + url;
+		   }
+		   return url;
+		}
+		
+	    $('body').terminal({
+			about: function() {
+				this.echo('<h2><a href="http://bit.ly/BE-CV" target="_blank">Curriculum vitae</a></h2>', {raw:true});
+				this.echo('<b>Specialties:</b> PHP, MySQL, JavaScript, CSS, jQuery, Codeigniter, HTML5, XHTML, XML, JSON, PhoneGap, REST, Problem Solving, Strategic Planning, Creative Ideas, Project Management, Bass Guitar', {raw:true});
+				this.echo('');
+				
+				this.echo('<b>Accomplishments</b>', {raw:true});
+				this.echo(' * Founded several start-ups, one of which (Webtoast Media) was acquired by Bill Young Productions');
+				this.echo(' * Served multiple times on a Board of Directors');
+				this.echo(' * Built a global real-time project status board for a multinational oil and gas company');
+				this.echo(' * Created a fully custom content management system (CMS)');
+				this.echo(' * Built an online subscription based health and wellness e-learning platform');
+				this.echo(' * Launched a national social network for concerts');
+				this.echo(' * Built a hybrid multi-platform mobile app for a national music industry conference');
+				this.echo(' * Built an internet radio and independent artist eCommerce solution');
+				this.echo('');
+				
+				this.echo('<b>Skills</b>', {raw:true});
+				this.echo(' * Implement scalable cloud-based infrastructures');
+				this.echo(' * Full Stack LAMP, PHP, MySQL, CSS3, HTML5, Javascript, XML, JSON, SEO, AWS');
+				this.echo(' * LESS, SASS, Git, REST, PhoneGap, Codeigniter, jQuery, Twitter Bootstrap, Google Analytics, CloudFlare');
+				this.echo(' * Front End, Back End, User Interface, Database Architecture, UI/UX, eCommerce, Mobile Responsive');
+				this.echo(' * Create and consume API’s, Object Oriented Programming');
+				this.echo(' * DNS Management, Google Apps Deployment');
+				this.echo('');
+
+				this.echo('<b>Currently learning:</b> Node.js, Sails.js, Backbone.js, Underscore.js, Socket.io, MongoDB', {raw:true});
+				this.echo('');
+				
+				this.echo('<a href="http://www.about.me/butchewing" target="_blank">about.me/butchewing</a>', {raw:true});
+				this.echo('');
+		    },
+		
+			background_color: function(a) {
+		        if (a == 'normal') {
+		          $('body').css("background-color", '#000000');
+		        } else {
+		          $('body').css("background-color", a);
+		        }
+		    },
+		
+		    contact: function() {
+		        this.echo('Get in touch via:');
+		        this.echo('Twitter: @butchewing');
+				this.echo('Email: butch@butchewing.com');
+		    },
+		
+		    education: function() {
+		        this.echo('I studied Practical Theology and graduated with an associates degree at Christ For The Nations in Dallas, Texas.');
+		    },
+			
+		    facebook: function() {
+				window.open('https://www.facebook.com/butch.ewing','_blank');
+		    },
+		
+		    help: function() {
+		        this.echo('Available commands:');
+		        this.echo('\tabout................................Information about Butch Ewing');
+		        this.echo('\tcontact..............................A way to contact me');
+				this.echo('\tclear................................Clears the screen');
+				this.echo('\teducation............................We don\'t need no...');
+				this.echo('\tfacebook.............................My Facebook profile');
+		        this.echo('\thelp.................................This help screen');
+		 		this.echo('\tlast_fm..............................My last.fm profile');
+				this.echo('\tnerdy................................I don\'t know lets see!');
+				this.echo('\tbackground_color <color>|normal......change the background color of this screen');
+				this.echo('\ttwitter..............................My Twitter profile');
+				this.echo('\twebsite <url>........................Go to a website');
+				this.echo('\twebsites.............................A list of websites with my fingerprints on them');
+				this.echo('\twhoami...............................A little information about you');
+				this.echo('\twhois................................Display my short brief');
+		    },
+		    
+		    last_fm: function() {
+				window.open('http://www.last.fm/user/butchewing','_blank');
+		    },
+		
+			// Special thanks to @dtex
+			nerdy: function() { 
+				this.echo('Yeah baby, super nerdy!');
+			},
+		
+			terminal_color: function(a) {
+				if (a == 'normal') {
+		          $('body').css("background-color", '#000000');
+		        } else {
+		          $('body').css("background-color", a);
+		        }
+		    },
+		
+			twitter: function() {
+				window.open('https://www.twitter.com/butchewing','_blank');
+		    },
+		
+			website: function(a) {				
+				window.open(addhttp(a),'_blank');
+		    },
+
+			websites: function() {
+		        this.echo('Some sites with my fingerprints on them:');
+				this.echo('');
+				
+				this.echo('<b>Arabic Church of Houston</b> - <a href="http://www.achouston.org" target="_blank">achouston.org</a>', {raw:true});
+				this.echo('Front End / Back End Development, English and Arabic, Custom CMS, Audio Podcast, Google Calendar integration');
+				this.echo('');
+
+				this.echo('<b>AspenLive</b> - <a href="http://www.aspenlive.com" target="_blank">aspenlive.com</a>', {raw:true});
+				this.echo('Front End Development, Weather Feed, Live Webcam Feed');
+				this.echo('');
+
+				this.echo('<b>Atascocita Community Church</b> - <a href="http://www.atascocita.org" target="_blank">atascocita.org</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Vimeo Integration, Google Calendar Integration, Audio Podcast');
+				this.echo('');
+
+				this.echo('<b>Bill Young Productions</b> - <a href="http://www.byp.com" target="_blank">byp.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Vimeo Integration, Voice Talent Database, REST integration with internal system, Audio Podcast');
+				this.echo('');
+
+				this.echo('<b>Bob Ruzicka Insurance Agency</b> - <a href="http://www.brinsure.com" target="_blank">brinsure.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Custom CMS, Blogger Integration');
+				this.echo('');
+
+				this.echo('<b>Copperfield Church</b> - <a href="http://copperfieldchurch.com" target="_blank">copperfieldchurch.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Vimeo Integration');
+				this.echo('');
+
+				this.echo('<b>The Lighthouse</b> - <a href="http://www.dfwlighthouse.org" target="_blank">dfwlighthouse.org</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Vimeo Integration, Google Calendar Integration, Audio Podcast, Flickr Integration');
+				this.echo('');
+
+				this.echo('<b>Fort Bend Christian Counseling</b> - <a href="http://www.fortbendccc.com" target="_blank">fortbendccc.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Custom CMS');
+				this.echo('');
+
+				this.echo('<b>Gary’s Window Tinting</b> - <a href="http://www.garyswindowtinting.com" target="_blank">garyswindowtinting.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Flickr Integration');
+				this.echo('');
+
+				this.echo('<b>Heaston Church</b> - <a href="http://www.heastonchurch.com" target="_blank">heastonchurch.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Audio Podcast');
+				this.echo('');
+
+				this.echo('<b>Texas Video and Post</b> - <a href="http://www.tvpmedia.com" target="_blank">tvpmedia.com</a>', {raw:true});
+				this.echo('Front End Development, Vimeo Integration, Tumblr Integration');
+				this.echo('');
+
+				this.echo('<b>The Laredo Group</b> - <a href="http://www.laredogroup.org" target="_blank">laredogroup.org</a>', {raw:true});
+				this.echo('Front End / Back End Development, Custom CMS, Custom "Apply Online" System');
+				this.echo('');
+
+				this.echo('<b>Larry Young Paving</b> - <a href="http://www.larryyoungpaving.com" target="_blank">larryyoungpaving.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Flickr Integration');
+				this.echo('');
+
+				this.echo('<b>LCEC Plants</b> - <a href="http://www.lcecplants.com" target="_blank">lcecplants.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Custom CMS');
+				this.echo('');
+				
+				this.echo('<b>Lifefuse</b> - <a href="http://www.lifefuse.org" target="_blank">lifefuse.org</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Osmek CMS, Vimeo Integration, YouTube Integration, Custom Subscription System, Affiliate System, Group Subscription System, Custom Health Tracking System, Custom Curriculum System with User Tracking');
+				this.echo('');
+
+				this.echo('<b>Lighthouse Coffee Bar</b> - <a href="http://www.lighthousecoffeebar.com" target="_blank">lighthousecoffeebar.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Google Calendar Integration');
+				this.echo('');
+
+				this.echo('<b>Grace Community Church</b> - <a href="http://www.mygcc.org" target="_blank">mygcc.org</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Vimeo Integration');
+				this.echo('');
+
+				this.echo('<b>Optimal Sport Performance</b> - <a href="http://www.optimalsports.com" target="_blank">optimalsports.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, PayPal Integration');
+				this.echo('');
+
+				this.echo('<b>PEER Consulting, PC</b> - <a href="http://www.peercpc.com" target="_blank">peercpc.com</a>', {raw:true});
+				this.echo('Front End Development, Osmek CMS');
+				this.echo('');
+
+				this.echo('<b>Rowing Dock</b> - <a href="http://www.rowingdock.com" target="_blank">rowingdock.com</a>', {raw:true});
+				this.echo('Front End Development, Osmek CMS');
+				this.echo('');
+
+				this.echo('<b>True Vineayard Ministries</b> - <a href="http://www.truevineyard.org" target="_blank">truevineyard.org</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Google Calendar Integration');
+				this.echo('');
+
+				this.echo('<b>Veritas Christian Academy of Houston</b> - <a href="http://www.veritasca.org" target="_blank">veritasca.org</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Site Redirect, Custom CMS');
+				this.echo('');
+
+				this.echo('<b>Gardner and Martin Flags and Flagpoles</b> - <a href="https://www.gardnerandmartin.com" target="_blank">gardnerandmartin.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Full eCommerce');
+				this.echo('');
+
+				this.echo('<b>Outbound Music</b> - <a href="https://www.outboundmusic.com" target="_blank">outboundmusic.com</a>', {raw:true});
+				this.echo('Front End / Back End Development, Mobile Responsive Design, Custom CMS, Full eCommerce, Digital Downloads, Streaming Audio');
+				this.echo('');
+		    },
+		
+		    whois: function() {
+		        this.echo('Butch Ewing is a Web Developer, Artist, Musician, Entrepreneur, Super Hero, Public Figure, Cancer Survivor, Small Business Owner, Christ Follower, Screen Writer, Ordained Minister, Comedian, and Dork.');
+		    },
+
+			whoami: function() {
+		        this.echo(navigator.userAgent);
+				this.echo(user_ip);
+				this.echo(user_city + ', ' + user_country);
+				this.echo('<a href="https://www.google.com/maps/place/' + user_lat + ',' + user_long + '" target="_blank">' + user_lat + ',' + user_long + '</a>', {raw:true});
+		    }
+
+	    }, {
+	        greetings: 'Hi, I\'m Butch Ewing! Type a command, or type `help`, for a list of commands.\r\n',
+	        name: 'butchewing',
+	        height: window.innerHeight - 36,
+	        prompt: 'be > '
+		});
+	});
+	</script>
+</head>
+<body>
+	<h1>Butch Ewing - Full Stack Developer+</h1>
+	<p>Butch Ewing is a Web Developer, Artist, Musician, Entrepreneur, Super Hero, Public Figure, Cancer Survivor, Small Business Owner, Christ Follower, Screen Writer, Ordained Minister, Comedian, and Dork.</p>
+	<p><a href="https://www.twitter.com/butchewing">@butchewing</a></p>
+</body>
+</html>
